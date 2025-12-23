@@ -76,17 +76,16 @@ export const ProjectsSection = () => {
 
                 {/* Actions */}
                 <div className="px-6 pb-6 flex gap-3">
-                  <Button variant="ghost" size="sm" asChild>
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="gap-2"
-                    >
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button variant="ghost" size="sm" className="gap-2">
                       <Github size={16} />
                       View on GitHub
-                    </a>
-                  </Button>
+                    </Button>
+                  </a>
                 </div>
               </div>
             ))}
