@@ -1,46 +1,15 @@
-import { ExternalLink, Github, Monitor, Code, BookOpen, Database } from 'lucide-react';
+import { ExternalLink, Github, Monitor } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const projects = [
   {
-    title: 'Online Examination & Proctoring System',
+    title: 'Online Examination & AI Proctoring System',
     description:
-      'A comprehensive exam platform featuring real-time proctoring with camera access, tab-switch detection, fullscreen enforcement, and timed assessments. Built with focus on security and user experience.',
-    tech: ['React', 'Node.js', 'MongoDB', 'WebRTC', 'Socket.io'],
+      'Developed a full-stack online examination platform with multi-section tests, coding rounds, automatic timing, and AI-based proctoring (fullscreen enforcement, tab-switch detection, webcam monitoring). Built using React, TypeScript, Vite, Tailwind CSS, Firebase Authentication, MongoDB, and Node.js/Flask backend.',
+    tech: ['React', 'TypeScript', 'Tailwind CSS', 'Node.js', 'Flask', 'MongoDB', 'Firebase'],
     icon: Monitor,
     color: 'from-primary to-accent',
-    github: '#',
-    demo: '#',
-  },
-  {
-    title: 'Coding Practice Platform',
-    description:
-      'Interactive learning platform for aptitude, reasoning, and coding challenges. Features an integrated code compiler, progress tracking, and adaptive difficulty levels.',
-    tech: ['React', 'Express.js', 'MySQL', 'Docker', 'Judge0 API'],
-    icon: Code,
-    color: 'from-accent to-primary',
-    github: '#',
-    demo: '#',
-  },
-  {
-    title: 'Python Learning Portal',
-    description:
-      'Educational platform designed to teach Python programming through interactive exercises, real-world projects, and comprehensive curriculum for beginners to advanced users.',
-    tech: ['Python', 'Flask', 'SQLite', 'HTML/CSS', 'JavaScript'],
-    icon: BookOpen,
-    color: 'from-primary to-accent',
-    github: '#',
-    demo: '#',
-  },
-  {
-    title: 'SQL Query Practice Tool',
-    description:
-      'Hands-on SQL learning environment with a built-in database simulator, query validation, and progressive challenges to master database operations and optimization.',
-    tech: ['JavaScript', 'MySQL', 'Node.js', 'React', 'Chart.js'],
-    icon: Database,
-    color: 'from-accent to-primary',
-    github: '#',
-    demo: '#',
+    github: 'https://github.com/Gnaneshwarnath',
   },
 ];
 
@@ -65,7 +34,7 @@ export const ProjectsSection = () => {
           </div>
 
           {/* Projects Grid */}
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-1 gap-6 max-w-3xl mx-auto">
             {projects.map((project, index) => (
               <div
                 key={project.title}
@@ -115,18 +84,7 @@ export const ProjectsSection = () => {
                       className="gap-2"
                     >
                       <Github size={16} />
-                      Code
-                    </a>
-                  </Button>
-                  <Button variant="ghost" size="sm" asChild>
-                    <a
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="gap-2"
-                    >
-                      <ExternalLink size={16} />
-                      Demo
+                      View on GitHub
                     </a>
                   </Button>
                 </div>

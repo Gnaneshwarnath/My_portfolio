@@ -3,54 +3,48 @@ const skillCategories = [
     title: 'Programming Languages',
     skills: [
       { name: 'Python', level: 90 },
-      { name: 'Java', level: 85 },
-      { name: 'JavaScript', level: 85 },
-      { name: 'C', level: 75 },
+      { name: 'JavaScript', level: 80 },
+      { name: 'TypeScript', level: 75 },
     ],
   },
   {
-    title: 'Frontend',
+    title: 'Web Technologies',
     skills: [
-      { name: 'React', level: 85 },
-      { name: 'HTML/CSS', level: 90 },
+      { name: 'HTML', level: 90 },
+      { name: 'CSS', level: 85 },
+      { name: 'React', level: 80 },
       { name: 'Tailwind CSS', level: 85 },
-      { name: 'TypeScript', level: 80 },
     ],
   },
   {
     title: 'Backend',
     skills: [
-      { name: 'Node.js', level: 80 },
-      { name: 'Express.js', level: 80 },
-      { name: 'Flask', level: 75 },
-      { name: 'REST APIs', level: 85 },
+      { name: 'Node.js', level: 75 },
+      { name: 'Flask', level: 70 },
+      { name: 'REST APIs', level: 80 },
     ],
   },
   {
     title: 'Databases',
     skills: [
-      { name: 'MongoDB', level: 80 },
       { name: 'MySQL', level: 85 },
-      { name: 'PostgreSQL', level: 75 },
-      { name: 'SQL', level: 85 },
+      { name: 'MongoDB', level: 75 },
     ],
   },
   {
-    title: 'CS Fundamentals',
+    title: 'Tools & Platforms',
     skills: [
-      { name: 'Data Structures', level: 90 },
-      { name: 'Algorithms', level: 85 },
-      { name: 'OOPS', level: 85 },
-      { name: 'DBMS', level: 80 },
-    ],
-  },
-  {
-    title: 'Tools & Others',
-    skills: [
-      { name: 'Git/GitHub', level: 90 },
+      { name: 'Git', level: 85 },
+      { name: 'GitHub', level: 90 },
       { name: 'VS Code', level: 95 },
-      { name: 'Linux', level: 75 },
-      { name: 'Docker', level: 65 },
+    ],
+  },
+  {
+    title: 'Languages',
+    skills: [
+      { name: 'English (C1 Advanced)', level: 90 },
+      { name: 'Hindi', level: 85 },
+      { name: 'Telugu', level: 95 },
     ],
   },
 ];

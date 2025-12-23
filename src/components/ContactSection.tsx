@@ -1,28 +1,35 @@
 import { useState } from 'react';
-import { Mail, Github, Linkedin, Send, MapPin } from 'lucide-react';
+import { Mail, Github, Linkedin, Send, MapPin, Phone, Code2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
+import { supabase } from '@/integrations/supabase/client';
 
 const socialLinks = [
   {
     name: 'Email',
     icon: Mail,
-    href: 'mailto:gnaneshwar@email.com',
-    value: 'gnaneshwar@email.com',
+    href: 'mailto:nathgnaneshwarnath@gmail.com',
+    value: 'nathgnaneshwarnath@gmail.com',
   },
   {
     name: 'GitHub',
     icon: Github,
-    href: 'https://github.com',
-    value: 'github.com/gnaneshwar',
+    href: 'https://github.com/Gnaneshwarnath',
+    value: 'github.com/Gnaneshwarnath',
   },
   {
     name: 'LinkedIn',
     icon: Linkedin,
-    href: 'https://linkedin.com',
-    value: 'linkedin.com/in/gnaneshwar',
+    href: 'https://www.linkedin.com/in/gnaneshwar-nath-miriyala',
+    value: 'linkedin.com/in/gnaneshwar-nath-miriyala',
+  },
+  {
+    name: 'LeetCode',
+    icon: Code2,
+    href: 'https://leetcode.com/u/Gnaneshwarnath/',
+    value: 'leetcode.com/u/Gnaneshwarnath',
   },
 ];
 
@@ -39,16 +46,33 @@ export const ContactSection = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      const { error } = await supabase.functions.invoke('send-contact-email', {
+        body: {
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        },
+      });
 
-    toast({
-      title: 'Message sent!',
-      description: "Thanks for reaching out. I'll get back to you soon!",
-    });
+      if (error) throw error;
 
-    setFormData({ name: '', email: '', message: '' });
-    setIsSubmitting(false);
+      toast({
+        title: 'Message sent!',
+        description: "Thanks for reaching out. I'll get back to you soon!",
+      });
+
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error) {
+      console.error('Error sending message:', error);
+      toast({
+        title: 'Error sending message',
+        description: 'Please try again or contact me directly via email.',
+        variant: 'destructive',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -106,11 +130,20 @@ export const ContactSection = () => {
                   ))}
                   <div className="flex items-center gap-4 text-muted-foreground">
                     <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                      <Phone className="w-5 h-5 text-primary" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-muted-foreground">Phone</p>
+                      <p className="text-foreground font-medium">+91 8639820461</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-4 text-muted-foreground">
+                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
                       <MapPin className="w-5 h-5 text-primary" />
                     </div>
                     <div>
                       <p className="text-sm text-muted-foreground">Location</p>
-                      <p className="text-foreground font-medium">India</p>
+                      <p className="text-foreground font-medium">Chennai, India</p>
                     </div>
                   </div>
                 </div>

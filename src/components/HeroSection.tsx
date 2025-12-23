@@ -1,4 +1,4 @@
-import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
+import { ArrowDown, Github, Linkedin, Mail, Code2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export const HeroSection = () => {
@@ -28,19 +28,19 @@ export const HeroSection = () => {
           {/* Main Heading */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-6 animate-fade-in-up stagger-1">
             Hi, I'm{' '}
-            <span className="gradient-text">Gnaneshwar Nath</span>
+            <span className="gradient-text">Miriyala Gnaneshwarnath</span>
           </h1>
 
           {/* Role */}
           <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-4 animate-fade-in-up stagger-2">
             Computer Science Student{' '}
-            <span className="text-primary">•</span> Full-Stack Developer{' '}
+            <span className="text-primary">•</span> Software Engineering Intern{' '}
             <span className="text-accent">•</span> Problem Solver
           </p>
 
           {/* Tagline */}
           <p className="text-base sm:text-lg text-muted-foreground/80 max-w-2xl mx-auto mb-10 animate-fade-in-up stagger-3">
-            Building scalable, secure, and intelligent web applications that make a difference.
+            Passionate about technology and problem-solving. Building scalable web applications with modern technologies.
           </p>
 
           {/* CTA Buttons */}
@@ -56,24 +56,36 @@ export const HeroSection = () => {
           {/* Social Links */}
           <div className="flex items-center justify-center gap-4 animate-fade-in-up stagger-5">
             <a
-              href="https://github.com"
+              href="https://github.com/Gnaneshwarnath"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 glass-card rounded-full text-muted-foreground hover:text-primary hover:border-primary/50 transition-all duration-300"
+              aria-label="GitHub"
             >
               <Github size={20} />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/gnaneshwar-nath-miriyala"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 glass-card rounded-full text-muted-foreground hover:text-primary hover:border-primary/50 transition-all duration-300"
+              aria-label="LinkedIn"
             >
               <Linkedin size={20} />
             </a>
             <a
-              href="mailto:gnaneshwar@email.com"
+              href="https://leetcode.com/u/Gnaneshwarnath/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="p-3 glass-card rounded-full text-muted-foreground hover:text-primary hover:border-primary/50 transition-all duration-300"
+              aria-label="LeetCode"
+            >
+              <Code2 size={20} />
+            </a>
+            <a
+              href="mailto:nathgnaneshwarnath@gmail.com"
+              className="p-3 glass-card rounded-full text-muted-foreground hover:text-primary hover:border-primary/50 transition-all duration-300"
+              aria-label="Email"
             >
               <Mail size={20} />
             </a>
