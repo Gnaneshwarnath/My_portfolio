@@ -30,7 +30,7 @@ export const Navbar = () => {
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
         <a href="#" className="text-xl font-display font-bold gradient-text">
-          GN
+          MGN
         </a>
 
         {/* Desktop Navigation */}

@@ -1,6 +1,11 @@
-import { Code2, Database, Brain, Rocket } from 'lucide-react';
+import { Code2, Database, Brain, Briefcase } from 'lucide-react';
 
 const highlights = [
+  {
+    icon: Briefcase,
+    title: 'Software Engineering Intern',
+    description: 'Currently at Infosys Springboard, applying Agile methodologies',
+  },
   {
     icon: Code2,
     title: 'Full-Stack Development',
@@ -9,17 +14,12 @@ const highlights = [
   {
     icon: Database,
     title: 'Database Design',
-    description: 'Designing efficient and scalable database architectures',
+    description: 'Working with MySQL, MongoDB, and designing efficient schemas',
   },
   {
     icon: Brain,
     title: 'Problem Solving',
     description: 'Strong foundation in DSA and algorithmic thinking',
-  },
-  {
-    icon: Rocket,
-    title: 'System Design',
-    description: 'Creating robust and maintainable software systems',
   },
 ];
 
@@ -43,20 +43,19 @@ export const AboutSection = () => {
             {/* Text Content */}
             <div className="space-y-6">
               <p className="text-lg text-muted-foreground leading-relaxed">
-                I'm a dedicated Computer Science Engineering student with a passion for building 
-                innovative software solutions. My journey in technology has equipped me with 
-                strong skills in full-stack development, data structures, and system design.
+                I'm a final-year B.Tech student at Saveetha Institute of Medical and Technical Sciences, 
+                passionate about technology and problem-solving. I'm eager to begin my career in the IT sector, 
+                where I can apply my programming skills and fresh ideas.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                I specialize in creating secure and intelligent web applications, with particular 
-                interest in online examination systems, proctoring platforms, and educational 
-                technology. I believe in writing clean, maintainable code that solves real-world 
-                problems.
+                Currently working as a Software Engineering Intern at Infosys Springboard, engaging in corporate 
+                simulation focused on digital transformation. I apply Agile methodologies under mentor guidance 
+                to solve real-world business problems.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Currently focused on mastering placement preparation with emphasis on Python, 
-                SQL, and advanced data structures. I'm always eager to learn new technologies 
-                and collaborate on challenging projects.
+                I'm looking for an opportunity to learn, grow, and contribute as part of a team that values 
+                innovation and continuous improvement. My expertise spans Python, web technologies, and database 
+                management.
               </p>
             </div>
 
