@@ -47,7 +47,7 @@ export const ContactSection = () => {
     setIsSubmitting(true);
 
     try {
-      const { error } = await supabase.functions.invoke('send-contact-email', {
+      const { data, error } = await supabase.functions.invoke('send-contact-email', {
         body: {
           name: formData.name,
           email: formData.email,
@@ -55,7 +55,12 @@ export const ContactSection = () => {
         },
       });
 
-      if (error) throw error;
+      if (error) {
+        console.error('Contact function error:', error);
+        throw error;
+      }
+
+      console.log('Contact function response:', data);
 
       toast({
         title: 'Message sent!',
@@ -63,11 +68,12 @@ export const ContactSection = () => {
       });
 
       setFormData({ name: '', email: '', message: '' });
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error sending message:', error);
       toast({
         title: 'Error sending message',
-        description: 'Please try again or contact me directly via email.',
+        description:
+          'Message service is temporarily unavailable. Please contact me directly via email.',
         variant: 'destructive',
       });
     } finally {
