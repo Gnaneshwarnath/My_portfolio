@@ -99,7 +99,7 @@
 
   .glow-effect::before {
     content: '';
-    @apply absolute inset-0 rounded-xl opacity-0 transition-opacity duration-300;
+    @apply absolute inset-0 rounded-xl opacity-0 transition-opacity duration-300 pointer-events-none;
     background: var(--gradient-glow);
   }
 
@@ -118,7 +118,7 @@
 
   .section-glow::before {
     content: '';
-    @apply absolute -top-40 left-1/2 -translate-x-1/2 w-96 h-96 rounded-full opacity-30 blur-3xl;
+    @apply absolute -top-40 left-1/2 -translate-x-1/2 w-96 h-96 rounded-full opacity-30 blur-3xl pointer-events-none;
     background: hsl(199 89% 48% / 0.2);
   }
 }
