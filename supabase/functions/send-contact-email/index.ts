@@ -19,7 +19,25 @@ const handler = async (req: Request): Promise<Response> => {
 
   try {
     const { name, email, message }: ContactRequest = await req.json();
-    const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
+
+    if (!name || !email || !message) {
+      return new Response(
+        JSON.stringify({ error: "Missing required fields: name, email, message" }),
+        {
+          status: 400,
+          headers: { "Content-Type": "application/json", ...corsHeaders },
+        },
+      );
+    }
+
+    const RESEND_API_KEY = (Deno.env.get("RESEND_API_KEY") ?? "").trim();
+    if (!RESEND_API_KEY) {
+      console.error("RESEND_API_KEY is missing");
+      return new Response(JSON.stringify({ error: "Email service is not configured" }), {
+        status: 500,
+        headers: { "Content-Type": "application/json", ...corsHeaders },
+      });
+    }
 
     const res = await fetch("https://api.resend.com/emails", {
       method: "POST",
@@ -36,11 +54,22 @@ const handler = async (req: Request): Promise<Response> => {
       }),
     });
 
-    const data = await res.json();
-    console.log("Email sent:", data);
+    const raw = await res.text();
+    let data: any = {};
+    try {
+      data = raw ? JSON.parse(raw) : {};
+    } catch {
+      data = { raw };
+    }
+
+    if (!res.ok) {
+      console.error("Resend API error", { status: res.status, data });
+    } else {
+      console.log("Email sent:", data);
+    }
 
     return new Response(JSON.stringify(data), {
-      status: res.ok ? 200 : 400,
+      status: res.status,
       headers: { "Content-Type": "application/json", ...corsHeaders },
     });
   } catch (error: any) {
